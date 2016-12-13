@@ -7,7 +7,7 @@ import java.time.LocalTime;
  */
 public enum DayPart {
 
-    MORNING(LocalTime.of(6, 00), LocalTime.of(9, 00)),
+    MORNING(LocalTime.of(6, 0), LocalTime.of(9, 0)),
     DAY(LocalTime.of(9, 0), LocalTime.of(19, 0)),
     EVENING(LocalTime.of(19, 0), LocalTime.of(23, 0)),
     NIGHT(LocalTime.of(23, 0), LocalTime.of(6, 0));
@@ -26,5 +26,9 @@ public enum DayPart {
 
     public LocalTime getStart() {
         return start;
+    }
+
+    public String toLowerCase(){
+        return this.name().toLowerCase();
     }
 }

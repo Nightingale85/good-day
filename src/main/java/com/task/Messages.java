@@ -24,7 +24,7 @@ public class Messages {
         try {
             return new String(value.getBytes("ISO-8859-1"), "UTF-8");
         } catch (UnsupportedEncodingException e) {
-            log.error(e.getMessage());
+            log.error(e);
         }
         return value;
     }

@@ -21,16 +21,16 @@ public class Messenger {
         switch (dayPart){
             case MORNING:
                 log.info("Morning message returning");
-                return resources.getString(MORNING.name().toLowerCase());
+                return resources.getString(MORNING.toLowerCase());
             case DAY:
                 log.info("Day message returning");
-                return resources.getString(DAY.name().toLowerCase());
+                return resources.getString(DAY.toLowerCase());
             case EVENING:
                 log.info("Evening message returning");
-                return resources.getString(EVENING.name().toLowerCase());
+                return resources.getString(EVENING.toLowerCase());
             case NIGHT:
                 log.info("Night message returning");
-                return resources.getString(NIGHT.name().toLowerCase());
+                return resources.getString(NIGHT.toLowerCase());
             default: throw new NoSuchElementException();
         }
     }
