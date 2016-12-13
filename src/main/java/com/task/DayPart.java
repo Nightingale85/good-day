@@ -21,15 +21,18 @@ public enum DayPart {
     }
 
     public static DayPart getDayPart(LocalTime current){
-
-        if(current.isAfter(MORNING.getStart().minusNanos(1)) && current.isBefore(MORNING.getEnd())) {
+        if(isInRange(current, MORNING)) {
             return MORNING;
-        } else if (current.isAfter(DAY.getStart().minusNanos(1)) && current.isBefore(DAY.getEnd())){
+        } else if (isInRange(current, DAY)) {
             return DAY;
-        } else if (current.isAfter(EVENING.getStart().minusNanos(1)) && current.isBefore(EVENING.getEnd())){
+        } else if (isInRange(current, EVENING)) {
             return EVENING;
         } else
             return NIGHT;
+    }
+
+    private static boolean isInRange(LocalTime current, DayPart dayPart){
+        return current.isAfter(dayPart.getStart().minusNanos(1)) && current.isBefore(dayPart.getEnd());
     }
 
     public LocalTime getEnd() {

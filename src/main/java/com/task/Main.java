@@ -14,7 +14,7 @@ public class Main {
         Messages messages = new Messages(Locale.getDefault(), "messages");
         DayPart dayPart = getDayPart(LocalTime.now());
         Messenger printer = new Messenger(messages);
-        System.out.println(printer.message(dayPart));;
+        System.out.println(printer.message(dayPart));
     }
 
 }
