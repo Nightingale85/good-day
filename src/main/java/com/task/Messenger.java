@@ -20,18 +20,19 @@ public class Messenger {
     public String message(DayPart dayPart){
         switch (dayPart){
             case MORNING:
-                log.info("Morning message returning");
-                return resources.getString(MORNING.toLowerCase());
+                return getMessage(MORNING);
             case DAY:
-                log.info("Day message returning");
-                return resources.getString(DAY.toLowerCase());
+                return getMessage(DAY);
             case EVENING:
-                log.info("Evening message returning");
-                return resources.getString(EVENING.toLowerCase());
+                return getMessage(EVENING);
             case NIGHT:
-                log.info("Night message returning");
-                return resources.getString(NIGHT.toLowerCase());
+                return getMessage(NIGHT);
             default: throw new NoSuchElementException();
         }
+    }
+
+    private String getMessage(DayPart dayPart){
+        log.info(dayPart + " message returning");
+        return resources.getString(dayPart.toLowerCase());
     }
 }

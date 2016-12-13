@@ -14,9 +14,7 @@ import static org.junit.Assert.assertEquals;
  * @author Sergiy_Solovyov
  */
 @RunWith(DataProviderRunner.class)
-public class TimeCheckerTest {
-
-    private TimeChecker timeChecker = new TimeChecker();
+public class DayPartTest {
 
     @DataProvider
     public static Object[][] data() {
@@ -38,6 +36,6 @@ public class TimeCheckerTest {
     @Test
     @UseDataProvider("data")
     public void testGetDayPart(DayPart dayPart, final LocalTime time) {
-        assertEquals(dayPart, timeChecker.getDayPart(time));
+        assertEquals(dayPart, getDayPart(time));
     }
 }

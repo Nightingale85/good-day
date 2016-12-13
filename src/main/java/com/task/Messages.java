@@ -13,7 +13,7 @@ public class Messages {
     private static final Logger log = Logger.getLogger(Messenger.class);
 
     public Messages(Locale locale, String resourceBundle){
-        if (!"RU".equals(locale.getCountry())){
+        if (!"ru".equals(locale.getLanguage())){
             locale = Locale.ENGLISH;
         }
         this.bundle = ResourceBundle.getBundle(resourceBundle, locale);
