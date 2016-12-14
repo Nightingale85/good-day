@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
  */
 public class Messages {
     private ResourceBundle bundle;
-    private static final Logger log = Logger.getLogger(Messenger.class);
+    private static final Logger log = Logger.getLogger(Messages.class);
 
     public Messages(Locale locale, String resourceBundle){
         if (!"ru".equals(locale.getLanguage())){
@@ -19,7 +19,7 @@ public class Messages {
         this.bundle = ResourceBundle.getBundle(resourceBundle, locale);
     }
 
-    public String getString(String key){
+    public String getMessage(String key){
         String value = bundle.getString(key);
         try {
             return new String(value.getBytes("ISO-8859-1"), "UTF-8");
