@@ -29,6 +29,8 @@ public class DayPartTest {
                 { EVENING, LocalTime.of(20, 15) },
                 { EVENING, LocalTime.of(22, 59, 59) },
                 { NIGHT, LocalTime.of(23, 00, 00) },
+                { NIGHT, LocalTime.of(23, 59, 59) },
+                { NIGHT, LocalTime.of(00, 00, 00) },
                 { NIGHT, LocalTime.of(3, 05) },
                 { NIGHT, LocalTime.of(5, 59, 59) }
         };

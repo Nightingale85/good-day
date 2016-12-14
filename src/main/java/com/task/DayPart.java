@@ -21,18 +21,14 @@ public enum DayPart {
     }
 
     public static DayPart getDayPart(LocalTime current){
-        if(isInRange(current, MORNING)) {
+        if(isWithinRange(current, MORNING)) {
             return MORNING;
-        } else if (isInRange(current, DAY)) {
+        } else if (isWithinRange(current, DAY)){
             return DAY;
-        } else if (isInRange(current, EVENING)) {
+        } else if (isWithinRange(current, EVENING)) {
             return EVENING;
         } else
             return NIGHT;
-    }
-
-    private static boolean isInRange(LocalTime current, DayPart dayPart){
-        return current.isAfter(dayPart.getStart().minusNanos(1)) && current.isBefore(dayPart.getEnd());
     }
 
     public LocalTime getEnd() {
@@ -45,5 +41,9 @@ public enum DayPart {
 
     public String toLowerCase(){
         return this.name().toLowerCase();
+    }
+
+    private static boolean isWithinRange(LocalTime current, DayPart dayPart){
+        return current.isAfter(dayPart.getStart().minusNanos(1)) && current.isBefore(dayPart.getEnd());
     }
 }

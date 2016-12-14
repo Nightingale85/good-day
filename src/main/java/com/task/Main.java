@@ -12,9 +12,9 @@ public class Main {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
         Messages messages = new Messages(Locale.getDefault(), "messages");
+        Messenger messenger = new Messenger(messages);
         DayPart dayPart = getDayPart(LocalTime.now());
-        Messenger printer = new Messenger(messages);
-        System.out.println(printer.message(dayPart));
+        System.out.println(messenger.getMessage(dayPart));
     }
 
 }

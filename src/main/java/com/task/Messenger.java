@@ -1,7 +1,6 @@
 package com.task;
 
 import org.apache.log4j.Logger;
-
 import java.util.NoSuchElementException;
 
 import static com.task.DayPart.*;
@@ -11,28 +10,28 @@ import static com.task.DayPart.*;
  */
 public class Messenger {
     private static final Logger log = Logger.getLogger(Messenger.class);
-    private Messages resources;
+    private Messages messages;
 
-    public Messenger(Messages resources) {
-        this.resources = resources;
+    public Messenger(Messages messages) {
+        this.messages = messages;
     }
 
-    public String message(DayPart dayPart){
+    public String getMessage(DayPart dayPart){
         switch (dayPart){
             case MORNING:
-                return getMessage(MORNING);
+                return loadMessage(MORNING);
             case DAY:
-                return getMessage(DAY);
+                return loadMessage(DAY);
             case EVENING:
-                return getMessage(EVENING);
+                return loadMessage(EVENING);
             case NIGHT:
-                return getMessage(NIGHT);
+                return loadMessage(NIGHT);
             default: throw new NoSuchElementException();
         }
     }
 
-    private String getMessage(DayPart dayPart){
-        log.info(dayPart + " message returning");
-        return resources.getString(dayPart.toLowerCase());
+    private String loadMessage(DayPart dayPart){
+        log.info(dayPart + " getMessage returning");
+        return messages.getString(dayPart.toLowerCase());
     }
 }

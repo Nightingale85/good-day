@@ -41,12 +41,12 @@ public class MessengerTest {
     @Test
     @UseDataProvider("data")
     public void testMessage(final String expected, DayPart dayPart) {
-        assertEquals(expected, messengerEn.message(dayPart));
+        assertEquals(expected, messengerEn.getMessage(dayPart));
     }
 
     @Test
     @UseDataProvider("dataRus")
     public void testMessageRus(final String expected, DayPart dayPart) {
-        assertEquals(expected, messengerRus.message(dayPart));
+        assertEquals(expected, messengerRus.getMessage(dayPart));
     }
 }
