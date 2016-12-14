@@ -14,9 +14,6 @@ import static org.junit.Assert.assertEquals;
 @RunWith(DataProviderRunner.class)
 public class MessengerTest {
 
-    private Messages messages = new Messages(Locale.ENGLISH, "messages");
-    private Messages messagesRu = new Messages(new Locale("ru", "RU"), "messages");
-
     @DataProvider
     public static Object[][] data() {
         return new Object[][] {
@@ -36,14 +33,17 @@ public class MessengerTest {
         };
     }
     @Test
-    @UseDataProvider("data")
-    public void testMessage(final String expected, String dayPart) {
-        assertEquals(expected, messages.getMessage(dayPart));
-    }
-
-    @Test
     @UseDataProvider("dataRus")
     public void testMessageRus(final String expected, String dayPart) {
-        assertEquals(expected, messagesRu.getMessage(dayPart));
+        Locale.setDefault(new Locale("ru"));
+        Messages messages = new Messages("messages");
+        assertEquals(expected, messages.getMessage(dayPart));
+    }
+    @Test
+    @UseDataProvider("data")
+    public void testMessage(final String expected, String dayPart) {
+        Locale.setDefault(Locale.ENGLISH);
+        Messages messages = new Messages("messages");
+        assertEquals(expected, messages.getMessage(dayPart));
     }
 }

@@ -2,7 +2,6 @@ package com.task;
 
 import org.apache.log4j.Logger;
 import java.io.UnsupportedEncodingException;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
@@ -12,11 +11,8 @@ public class Messages {
     private ResourceBundle bundle;
     private static final Logger log = Logger.getLogger(Messages.class);
 
-    public Messages(Locale locale, String resourceBundle){
-        if (!"ru".equals(locale.getLanguage())){
-            locale = Locale.ENGLISH;
-        }
-        this.bundle = ResourceBundle.getBundle(resourceBundle, locale);
+    public Messages(String resourceBundle){
+        this.bundle = ResourceBundle.getBundle(resourceBundle);
     }
 
     public String getMessage(String key){
