@@ -6,6 +6,8 @@ import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.time.LocalTime;
+
 import static com.task.GoodDayApp.getDayPart;
 import static org.junit.Assert.assertEquals;
 
@@ -18,25 +20,25 @@ public class GoodDayAppTest {
     @DataProvider
     public static Object[][] data() {
         return new Object[][] {
-                { "morning", 6},
-                { "morning", 7},
-                { "morning", 8},
-                { "day", 9},
-                { "day", 12},
-                { "day", 18},
-                { "evening", 19},
-                { "evening", 21},
-                { "evening", 22},
-                { "night", 23},
-                { "night", 0},
-                { "night", 2},
-                { "night", 3},
-                { "night", 5}
+                { "morning", LocalTime.of(6, 0)},
+                { "morning", LocalTime.of(8, 0)},
+                { "morning", LocalTime.of(8, 59)},
+                { "day", LocalTime.of(9, 0)},
+                { "day", LocalTime.of(12, 0)},
+                { "day", LocalTime.of(18, 59)},
+                { "evening", LocalTime.of(19, 0)},
+                { "evening", LocalTime.of(22, 0)},
+                { "evening", LocalTime.of(22, 59)},
+                { "night", LocalTime.of(23, 00)},
+                { "night", LocalTime.of(23, 59)},
+                { "night", LocalTime.of(0, 0)},
+                { "night", LocalTime.of(3, 0)},
+                { "night", LocalTime.of(5, 59)}
         };
     }
     @Test
     @UseDataProvider("data")
-    public void testGetDayPart(String dayPart, final int hour) {
-        assertEquals(dayPart, getDayPart(hour));
+    public void testGetDayPart(String dayPart, final LocalTime time) {
+        assertEquals(dayPart, getDayPart(time));
     }
 }

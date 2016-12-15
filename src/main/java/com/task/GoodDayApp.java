@@ -11,11 +11,12 @@ public class GoodDayApp {
     public static void main(String[] args) throws UnsupportedEncodingException {
 
         Messages messages = new Messages("messages");
-        System.out.println(messages.getMessage(getDayPart(LocalTime.now().getHour())));
+        System.out.println(messages.getMessage(getDayPart(LocalTime.now())));
     }
 
-    public static String getDayPart(int hour){
-       if (6 <= hour && hour < 9){
+    public static String getDayPart(LocalTime time){
+        int hour = time.getHour();
+        if (6 <= hour && hour < 9){
            return "morning";
        } else if (9 <= hour && hour < 19){
            return "day";
